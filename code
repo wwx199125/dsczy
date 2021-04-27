@@ -1,1 +1,49 @@
-.
+#include<stdio.h>
+#include<stdlib.h>
+#include<iostream>
+using namespace std;
+int main()
+{
+	int n;
+	scanf_s("%d", &n);
+	int a[10];
+	for (int i = 0;i < n;i++)
+	{
+		scanf_s("%d", &a[i]);
+	}
+	int max = 0,fs=1,m=0;
+	for (int j = 0;j < n;j++)
+	{
+		if (a[j] > 0)
+		{
+			fs = 0;
+			max = max+m;
+			if (max < 0)
+			{
+				max = 0;
+			}
+			max = max + a[j];
+			m = 0;
+		}
+		else
+		{
+			m = m + a[j];
+			if (max < 0)
+			{
+				max = 0;
+			}
+		}
+
+	}
+	if (fs == 1)
+	{
+		printf("0");
+	}
+	else
+	{
+		printf("%d", max);
+	}
+
+	system("pause");
+	return 0;
+}
